@@ -12,8 +12,11 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "centos/7"
-  config.vm.provision :shell, path: "bootstrap.sh"
+  config.vm.define "master" do |master|
+    master.vm.box = "centos/7"
+    master.vm.hostname = "puppet"
+    master.vm.provision :shell, path: "master/bootstrap.sh"
+  end
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs

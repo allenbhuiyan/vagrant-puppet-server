@@ -1,2 +1,5 @@
 ## Vagrant Puppet Master
-Still a HOT work in progress.
+Deploy a puppet master on CentOS 7.
+
+### Installed Modules
+* puppetlabs-ntp
