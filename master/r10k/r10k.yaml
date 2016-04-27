@@ -1,0 +1,6 @@
+---
+cachedir: '/opt/puppetlabs/r10k/cache'
+sources:
+  operations:
+    remote: 'http://git.outer-haven.net/outer-haven/puppet-control-repo.git'
+    basedir: '/etc/puppetlabs/code/environments'
