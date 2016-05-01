@@ -14,4 +14,4 @@ systemctl start puppetserver
 # Install r10k, copy config, and deploy enviornments
 /opt/puppetlabs/puppet/bin/gem install r10k
 cp -r /home/vagrant/sync/master/r10k /etc/puppetlabs
-/opt/puppetlabs/puppet/bin/r10k deploy environment
+/opt/puppetlabs/puppet/bin/r10k deploy environment -p
