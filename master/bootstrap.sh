@@ -4,10 +4,13 @@ rm /etc/localtime
 ln -s /usr/share/zoneinfo/America/Phoenix /etc/localtime
 # Install Puppet repo
 rpm -Uvh https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
-# Install Puppet Server anf git
+# Install Puppet Server and git
 yum install -y puppetserver git
 # Set Puppet Server memory allocation to 512MB for smaller VMs
 sed -i -- 's/JAVA_ARGS="-Xms2g -Xmx2g -XX:MaxPermSize=256m"/JAVA_ARGS="-Xms512m -Xmx512m -XX:MaxPermSize=256m"/g' /etc/sysconfig/puppetserver
+# Copy custom puppet.conf and hiera config
+cp /home/vagrant/sync/master/puppet.conf /etc/puppetlabs/puppet
+cp -f /home/vagrant/sync/master/hiera.yaml /etc/puppetlabs/puppet
 # Enable and start Puppet Server
 systemctl enable puppetserver
 systemctl start puppetserver
